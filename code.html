@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Forgiveness?</title>
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #ffd6e0, #ffc2d1, #ffb3c6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  .container {
+    background: #fff0f5;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 420px;
+  }
+
+  h2 {
+    color: #e75480;
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.2em;
+    color: #555;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 25px 0;
+    position: relative;
+  }
+
+  .button {
+    border: none;
+    border-radius: 25px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .yes-button {
+    background-color: #ff80ab;
+    color: white;
+  }
+
+  .yes-button:hover {
+    background-color: #ff4d94;
+    transform: translateY(-2px);
+  }
+
+  .no-button {
+    background-color: #a90740;
+    color: white;
+    position: absolute;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+  }
+
+  .no-button:hover {
+    background-color: #f78fb3;
+    transform: scale(1.05);
+  }
+
+  /* Center and style the images */
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .image-container img {
+    width: 45%;
+    max-width: 160px;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  #responseMessage {
+    margin-top: 20px;
+    color: #e91e63;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>I’m truly sorry 🥺</h2>
+  <p>Will you forgive me?</p>
+
+  <div class="button-group">
+    <button class="button yes-button" onclick="forgive()">Yes 💖</button>
+    <button class="button no-button" id="noButton">No 😢</button>
+  </div>
+
+  <div class="image-container">
+    <img src="cat.gif" alt="cat">
+    <img src="crying-cat-chat-qui-pleure.gif" alt="sad">
+  </div>
+
+  <div id="responseMessage"></div>
+</div>
+
+<script>
+  function forgive() {
+    document.getElementById("responseMessage").textContent = "Thank you so much! You're the best 💞";
+  }
+
+  const noButton = document.getElementById("noButton");
+  noButton.addEventListener("mouseenter", () => {
+    const container = document.querySelector(".container");
+    const containerRect = container.getBoundingClientRect();
+    const maxX = containerRect.width - 100;
+    const maxY = containerRect.height - 100;
+    const newX = Math.random() * maxX;
+    const newY = Math.random() * maxY;
+    noButton.style.transform = `translate(${newX}px, ${newY}px)`;
+  });
+</script>
+
+</body>
+</html>
